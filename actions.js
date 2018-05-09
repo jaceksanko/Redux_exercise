@@ -1,10 +1,10 @@
 import uuid from 'uuid';
 
-const   ADD_COMMENT = 'ADD_COMMENT',
-        EDIT_COMMENT = 'EDIT_COMMENT',
-        DEL_COMMENT = 'DEL_COMMENT',
-        THUMB_UP_COMMENT = 'RATING_COMMENT_UP',
-        THUMB_DOWN_COMMENT = 'RATING_COMMENT_DOWN';
+export const   ADD_COMMENT = 'ADD_COMMENT',
+               EDIT_COMMENT = 'EDIT_COMMENT',
+               DEL_COMMENT = 'DEL_COMMENT',
+               THUMB_UP_COMMENT = 'RATING_COMMENT_UP',
+               THUMB_DOWN_COMMENT = 'RATING_COMMENT_DOWN';
 
 function addComment(text) {
     return {
@@ -29,19 +29,19 @@ function delComment(id) {
     }
 }
 
-function thumbUpComment(id, thumb) {
+function thumbUpComment(id) {
     return {
         type: THUMB_UP_COMMENT,
         id,
-        thumb: thumb++
+        votes: votes + 1
     }
 }
 
-function thumbDownComment(id, thumb) {
+function thumbDownComment(id) {
     return {
         type: THUMB_DOWN_COMMENT,
         id,
-        thumb: thumb--
+        votes: votes - 1
     }
 }
 
