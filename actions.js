@@ -6,8 +6,10 @@ export const   ADD_COMMENT = 'ADD_COMMENT',
                THUMB_UP_COMMENT = 'RATING_COMMENT_UP',
                THUMB_DOWN_COMMENT = 'RATING_COMMENT_DOWN';
 
+
+//kreator akcji
 function addComment(text) {
-    return {
+    return { //akcja
         type: ADD_COMMENT,
         text,
         id: uuidv4()
@@ -45,12 +47,16 @@ function thumbDownComment(id) {
     }
 }
 
+//bound action creator - tworzy i wysyła akcję za pomocą metody dispatch 
 const   boundAddComment = (text) => dispatch(addComment(text)),
         boundEditComment = (text, id) => dispatch(editComment(text, id)),
         boundDelComment = (id) => dispatch(delComment(id)),
-        boundThumbUpComment = (id, thumb) => dispatch(thumbUpComment(id, thumb)),
-        boundThumbDownComment = (id, thumb) => dispatch(thumbDownComment(id, thumb));
+        boundThumbUpComment = (id) => dispatch(thumbUpComment(id)),
+        boundThumbDownComment = (id) => dispatch(thumbDownComment(id));
 
-
+//przykład wywołania akcji
+//boundAddComment('nowy komentarz');
+//boundAddComment('Kolejny komentarz');
+//boundEditComment('Wyedytowany komentarz', 20);
 
 
